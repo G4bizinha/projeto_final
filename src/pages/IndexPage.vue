@@ -6,7 +6,7 @@
       @comprar="onComprar"
       @detalhes="onDetalhes"
       @retirar="onRetirar"
-      :botoes="['teste2', 'comprar']"
+      :botoes="['teste5', 'comprar']"
     />
     <EscolherComplementos
       v-if="mostrandoComplementos"
@@ -70,7 +70,7 @@ export default defineComponent({
           "http://localhost:3000/clientes",
           dadosCadastro
         );
-        console.log("Cadastro efetuado com sucesso:", response.data);
+        console.log("Cadastro efetuado c/ sucesso:", response.data);
       } catch (error) {
         console.error("Erro ao salvar:", error);
       }
