@@ -44,7 +44,6 @@ export default {
 <style>
 .lista {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
   background-color: white;
   border: 1px solid black;
