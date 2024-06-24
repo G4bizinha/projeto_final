@@ -10,9 +10,12 @@
           <q-input v-model="telefone" label="Telefone" />
         </q-card-section>
         <q-card-actions align="right">
-          <q-btn @click="efetuarCadastro"
-            color="primary"
+          <q-btn @click="verificarCPF" label="Verificar CPF" color="primary" />
+          <q-btn
+            @click="efetuarCadastro"
             label="Salvar"
+            color="primary"
+            :disable="!cpfValido || cpfExistente"
           />
         </q-card-actions>
       </q-card>
