@@ -23,6 +23,7 @@ import axios from "axios";
 
 import ListaProdutos from "src/components/ListaProdutos.vue";
 import EscolherComplementos from "src/components/EscolherComplementos.vue";
+import { getProdutos } from "src/services/produtoServices.js";
 
 export default defineComponent({
   name: "IndexPage",
@@ -43,8 +44,8 @@ export default defineComponent({
   methods: {
     async carregarProdutos() {
       try {
-        const response = await axios.get("http://localhost:3000/produtos");
-        this.arrProdutos = response.data;
+        this.arrProdutos = await getProdutos();
+        console.log("Produtos carregados:", this.arrProdutos);
       } catch (error) {
         console.error("Erro ao carregar:", error);
       }
