@@ -23,7 +23,7 @@ import axios from "axios";
 
 import ListaProdutos from "src/components/ListaProdutos.vue";
 import EscolherComplementos from "src/components/EscolherComplementos.vue";
-import { getProdutos } from "src/services/produtoServices.js";
+import { getProdutos } from "../services/produtosServices.js";
 
 export default defineComponent({
   name: "IndexPage",

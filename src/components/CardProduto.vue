@@ -10,7 +10,7 @@
     </q-card-section>
     <q-card-section v-if="comImagem">
       <q-img
-        :src="produto.imagem"
+        :src="produto.img"
         :alt="produto.nome"
         style="width: 100%; height: 200px"
       />
