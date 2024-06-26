@@ -1,10 +1,6 @@
 <template>
   <q-card class="cardProduto">
-    <q-card-section>
-      <q-card-title
-        ><h5>{{ produto.nome }}</h5></q-card-title
-      >
-    </q-card-section>
+        <h5>{{ produto.nome }}</h5>
     <q-card-section>
       <q-card-subtitle>R$ {{ produto.preco.toFixed(2) }}</q-card-subtitle>
     </q-card-section>

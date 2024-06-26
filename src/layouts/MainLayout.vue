@@ -2,28 +2,13 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <!-- Remova o título padrão "Quasar App" -->
-        <!-- <q-toolbar-title> Quasar App </q-toolbar-title> -->
-
-        <!-- Adicione o botão "Efetuar Cadastro" -->
-        
-        <!-- Adicione um botão de carrinho de compras -->
         <q-btn dense color="purple" round icon="shopping_cart" class="q-ml-md">
           <q-badge color="red" floating>{{ cart.length }}</q-badge>
         </q-btn>
-        <CadastroCompletoPage @efetuarCadastro="salvarCadastro" class="q-ml-sm" />
-
         <q-space />
-        
+        <CadastroCompletoPage @efetuarCadastro="salvarCadastro" class="q-ml-sm" />
+        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png " width="35" height="35"
+          class="q-ml-md">
       </q-toolbar>
     </q-header>
     <q-page-container>
@@ -77,4 +62,7 @@ export default defineComponent({
 .btn-efetuar-cadastro {
   margin-left: 20px; /* Ajuste a margem conforme necessário */
 }
+
+
 </style>
+
