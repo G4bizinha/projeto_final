@@ -5,62 +5,99 @@
         <q-btn dense color="blue" round icon="shopping_cart" class="q-ml-md">
           <q-badge color="red" floating>{{ cart.length }}</q-badge>
         </q-btn>
-        <q-space/>
         <CadastroCompletoPage @efetuarCadastro="salvarCadastro" class="q-ml-sm" />
-        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png " width="35" height="35"
-          class="q-ml-md">
+
+        <q-space />
+        
       </q-toolbar>
     </q-header>
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <!-- Dialog de cadastro -->
+    <q-dialog v-model="mostrarFormulario">
+      <CadastroCompletoPage @efetuarCadastro="salvarCadastro" />
+    </q-dialog>
   </q-layout>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
+import axios from "axios";
 import cartStore from "src/stores/cartStore";
 import CadastroCompletoPage from "src/components/CadastroCompletoPage.vue";
 
-
 export default defineComponent({
   name: "MainLayout",
-  components:{
-    CadastroCompletoPage
+  components: {
+    CadastroCompletoPage,
+<<<<<<< HEAD
+  },
+  setup() {
+    const leftDrawerOpen = ref(false);
+    const mostrarFormulario = ref(false);
+
+    const toggleLeftDrawer = () => {
+      leftDrawerOpen.value = !leftDrawerOpen.value;
+    };
+
+    return {
+      cart: cartStore.carrinho,
+      leftDrawerOpen,
+      toggleLeftDrawer,
+      mostrarFormulario,
+    };
+=======
+>>>>>>> 6b060c96adc2275099e5bcf398e35382f233e413
   },
   methods: {
     async salvarCadastro(dadosCadastro) {
-        try {
-          const response = await axios.post(
-            "http://localhost:3000/clientes",
-            dadosCadastro
-          );
-          console.log("Cadastro efetuado com sucesso:", response.data);
-        } catch (error) {
-          console.error("Erro ao salvar cadastro:", error);
-        }
-      },
+      try {
+        const response = await axios.post(
+          "http://localhost:3000/clientes",
+          dadosCadastro
+        );
+        console.log("Cadastro efetuado com sucesso:", response.data);
+<<<<<<< HEAD
+        this.mostrarFormulario = false; // Fechar o formulário após o cadastro bem-sucedido
+=======
+>>>>>>> 6b060c96adc2275099e5bcf398e35382f233e413
+      } catch (error) {
+        console.error("Erro ao salvar cadastro:", error);
+      }
+    },
+<<<<<<< HEAD
+=======
   },
 
   setup() {
     const leftDrawerOpen = ref(false);
 
     return {
-      
       cart: cartStore.carrinho,
       leftDrawerOpen,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
-      mostrarFormulario: false, // Adicione esta variável para o botão "Efetuar Cadastro"
+      mostrarFormulario: false, //  botão "Efetuar Cadastro"
     };
+>>>>>>> 6b060c96adc2275099e5bcf398e35382f233e413
   },
 });
 </script>
 
 <style scoped>
+<<<<<<< HEAD
+.q-ml-sm {
+  margin-left: 10px;
+}
+.q-ml-md {
+  margin-left: 20px;
+=======
 .btn-efetuar-cadastro {
-  margin-left: 20px; /* Ajuste a margem conforme necessário */
+  margin-left: 20px; /* Ajuste da margem  */
+>>>>>>> 6b060c96adc2275099e5bcf398e35382f233e413
 }
 
 

@@ -81,5 +81,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/* Estilos específicos para esta página, se necessário */
+/* Estilos específicos para esta página.  */
 </style>
