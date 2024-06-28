@@ -8,7 +8,8 @@
 
 <script>
 import { defineComponent } from "vue";
-import axios from "axios";
+import {getUserByCpf} from "src/services/CadastroService.js";
+
 
 export default defineComponent({
   name: "LoginPage",
@@ -21,35 +22,21 @@ export default defineComponent({
   methods: {
     async fazerLogin() {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/clientes?cpf=${this.cpf}&telefone=${this.telefone}`
-        );
-
-        if (response.data.length > 0) {
-          // Verificar se encontrou exatamente um cliente com CPF e telefone correspondentes
-          const cliente = response.data[0];
-          if (cliente.cpf === this.cpf && cliente.telefone === this.telefone) {
-            this.$q.notify({
+        getUserByCpf(this.cpf, this.telefone).then(() => {
+          console.log(response.data);
+          this.$q.notify({
               color: "positive",
               message: "Login efetuado com sucesso!",
               position: "top",
             });
-            // Redirecionar para a página inicial ou outra página
-            this.$router.push("/");
-          } else {
-            this.$q.notify({
-              color: "negative",
-              message: "CPF ou telefone incorretos. Tente novamente.",
-              position: "top",
-            });
-          }
-        } else {
+        }).catch((error) => {
+          console.error("Erro ao fazer login:", error);
           this.$q.notify({
             color: "negative",
-            message: "CPF ou telefone incorretos. Tente novamente.",
+            message: "Erro ao fazer login. Por favor, tente novamente.",
             position: "top",
           });
-        }
+        });
       } catch (error) {
         console.error("Erro ao fazer login:", error);
         this.$q.notify({

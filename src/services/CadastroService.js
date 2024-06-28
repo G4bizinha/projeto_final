@@ -1,4 +1,4 @@
-import {firebaseConfig} from './firebaseConfig';
+import {db} from './firebaseConfig';
 import {collection , onSnapshot, addDoc} from 'firebase/firestore';
 
 // Função para cadastrar um novo usuário
@@ -19,14 +19,14 @@ export const cadastrar = async (nome, telefone, cpf, endereco) =>{
 }
 
 // Função para pegar informações do usuário pelo CPF
-export const getUsuarioByCpf = async (cpf) => {
+export const getUserByCpf = async (cpf, telefone) => {
     try {
       // Cria uma referência para a coleção "clientes"
       const clientesRef = collection(db, 'clientes');
       
       // Cria uma consulta para buscar o documento com o CPF fornecido
-      const q = query(clientesRef, where('cpf', '==', cpf));
-      
+      const q = query(clientesRef, where('cpf', '==', cpf && 'telefone', '==', telefone));
+
       // Executa a consulta
       const querySnapshot = await getDocs(q);
       
@@ -35,6 +35,7 @@ export const getUsuarioByCpf = async (cpf) => {
         // Percorre os documentos encontrados
         querySnapshot.forEach((doc) => {
           console.log('Cliente encontrado: ', doc.data());
+          return doc.data();
         });
       } else {
         console.log('Nenhum cliente encontrado com o CPF fornecido.');

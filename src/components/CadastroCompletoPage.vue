@@ -22,7 +22,8 @@
 
 <script>
 import { defineComponent } from "vue";
-import axios from "axios";
+
+import {cadastrar} from "src/services/CadastroService.js";
 
 export default defineComponent({
   name: "CadastroCompletoPage",
@@ -106,29 +107,13 @@ export default defineComponent({
       }
 
       try {
-        const response = await axios.post("http://localhost:3000/clientes", {
-          nome: this.nome,
-          cpf: this.cpf,
-          endereco: this.endereco,
-          telefone: this.telefone,
-          login: {
-            usuario: this.cpf,
-            senha: this.telefone,
-          },
-        });
-
+        cadastrar(this.nome, this.telefone, this.cpf, this.endereco);
         this.$q.notify({
           color: "positive",
-          message: "Cadastro efetuado com sucesso!!!",
+          message: "Cadastro efetuado com sucesso.",
           position: "top",
         });
-
-        this.nome = "";
-        this.cpf = "";
-        this.endereco = "";
-        this.telefone = "";
-        this.mostrarFormulario = false;
-        this.cpfValido = false; // Desabilita o botão de salvar após o cadastro
+        return;
       } catch (error) {
         console.error("Erro ao efetuar cadastro:", error);
         this.$q.notify({
@@ -142,6 +127,3 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-/* Estilos específicos do componente */
-</style>
