@@ -1,11 +1,11 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn dense color="purple" round icon="shopping_cart" class="q-ml-md">
+    <q-header elevated style="background-color: blueviolet;">
+      <q-toolbar style="background-color: blueviolet;">
+        <q-btn dense color="blue" round icon="shopping_cart" class="q-ml-md">
           <q-badge color="red" floating>{{ cart.length }}</q-badge>
         </q-btn>
-        <q-space />
+        <q-space/>
         <CadastroCompletoPage @efetuarCadastro="salvarCadastro" class="q-ml-sm" />
         <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png " width="35" height="35"
           class="q-ml-md">
