@@ -28,6 +28,11 @@ const routes = [
             : [],
         }),
       },
+      {
+        path: "login",
+        name: "Login",
+        component: () => import("components/LoginPage.vue"),
+      },
     ],
   },
   {
