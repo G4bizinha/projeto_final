@@ -4,7 +4,6 @@
   "description": "A Quasar Project",
   "productName": "Demo Cadastro",
   "author": "jeanpaullopes <jean.lopes@ulife.com.br>",
-  "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
