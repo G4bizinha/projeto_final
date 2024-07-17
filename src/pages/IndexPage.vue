@@ -7,7 +7,7 @@
           <div>É necessário fazer login antes de acessar os produtos.</div>
         </q-card-section>
         <q-card-actions align="right">
-          <q-btn flat label="OK" color="primary" @click="irParaLogin" />
+          <q-btn flat label="OK" color="primary" @click="mostrarMensagemLogin=false" />
         </q-card-actions>
       </q-card>
     </q-dialog>
